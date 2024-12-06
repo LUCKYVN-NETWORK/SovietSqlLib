@@ -6,13 +6,47 @@
 
     <groupId>com.sunshroomchan</groupId>
     <artifactId>SovietSqlLib</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.3</version>
 
     <properties>
         <maven.compiler.source>11</maven.compiler.source>
         <maven.compiler.target>11</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-shade-plugin</artifactId>
+                <version>3.5.0</version>
+                <configuration>
+                    <relocations>
+                        <relocation>
+                            <pattern>com.zaxxer.hikari</pattern>
+                            <shadedPattern>com.sunshroomchan.hikari</shadedPattern>
+                        </relocation>
+                        <relocation>
+                            <pattern>org.mariadb</pattern>
+                            <shadedPattern>com.sunshroomchan.mariadb</shadedPattern>
+                        </relocation>
+                        <relocation>
+                            <pattern>com.mysql</pattern>
+                            <shadedPattern>com.sunshroomchan.mysql</shadedPattern>
+                        </relocation>
+                    </relocations>
+                </configuration>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>shade</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
 
     <repositories>
         <repository>
