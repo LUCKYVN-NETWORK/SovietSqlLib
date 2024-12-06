@@ -43,8 +43,8 @@
             <version>1.13.1-R0.1-SNAPSHOT</version>
         </dependency>
         <dependency>
-            <groupId>com.github.sunshroomchan.SovietSqlLib</groupId>
-            <artifactId>sqllib-api</artifactId>
+            <groupId>com.github.sunshroomchan</groupId>
+            <artifactId>SovietSqlLib</artifactId>
             <version>1.0.0</version>
         </dependency>
     </dependencies>
